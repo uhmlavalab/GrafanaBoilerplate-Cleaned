@@ -19,8 +19,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import {GrafanaBasic} from './grafana_basic';
+import {SlopeGraph} from './slope_graph';
 
 export {
-  GrafanaBasic as PanelCtrl
+  SlopeGraph as PanelCtrl
 };

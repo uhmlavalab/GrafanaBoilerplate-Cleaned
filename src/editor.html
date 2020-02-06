@@ -1,3 +1,12 @@
 <div class="section gf-form-group">
-    <h5 class="section-heading">Grafana Basic Options</h5>
+    <h4 class="section-heading">Slope Graph Options</h4>
+    <p>Number of Lines to Draw:
+    <input type="text" placeholder="Lines" ng-change="ctrl.render()" ng-model="ctrl.panel.num_pairs">
+    </p>
+    <p>Left Column Header: 
+    <input type="text" placeholder="Header 1" ng-change="ctrl.render()" ng-model="ctrl.panel.header1">
+    </p>
+    <p>Right Column Header: 
+    <input type="text" placeholder="Header 2" ng-change="ctrl.render()" ng-model="ctrl.panel.header2">
+    </p>
 </div>

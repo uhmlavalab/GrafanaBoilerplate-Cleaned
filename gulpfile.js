@@ -26,7 +26,7 @@ var dependencies = [];
 
 //helper function for exporting modules into a global namespace
 var _namespace = function (module) {
-    var base = "Grafana.Basic.";
+    var base = "Slope.Graph.";
     return base + module;
 };
 
@@ -57,7 +57,7 @@ var createJS = function (options) {
     var namespace = _namespace(options.name);
     var name_lower = options.name.toLowerCase();
 
-    var file_name = (options.dev) ? 'grafanabasic_' + name_lower + '.js' : 'grafanabasic_' + name_lower + '.min.js';
+    var file_name = (options.dev) ? 'slopegraph_' + name_lower + '.js' : 'slopegraph_' + name_lower + '.min.js';
     return browserify('./src/js/' + options.name + '.js', {
         standalone: namespace
     })
@@ -99,7 +99,7 @@ var createCSS = function (options) {
 
     var name_lower = options.name.toLowerCase();
 
-    var file_name = (options.dev) ? 'grafanabasic_' + name_lower + '.css' : 'grafanabasic_' + name_lower + '.min.css';
+    var file_name = (options.dev) ? 'slopegraph_' + name_lower + '.css' : 'slopegraph_' + name_lower + '.min.css';
     gulp.src(options.files, { base: 'src/css/' })
         .pipe(concat(file_name))
         //get rid of windows newline cancer
@@ -142,12 +142,16 @@ var buildAll = function (options) {
     gulp.src('src/display_editor.html').pipe(gulp.dest('./dist'));
     createPlugin({ files: ['./src/*.js',] });
 
-    /*
+
     createJS({
-        name: 'd3.v3',
+        name: 'parser',
         dev: options.dev
     });
-    */
+    createJS({
+        name: 'svghandler',
+        dev: options.dev
+    });
+
     //create the style css
     createCSS({
         name: 'styles',
@@ -166,8 +170,8 @@ var _generateYuiAPIDocs = function (options) {
     return gulp.src("./js/**/*.js")
         .pipe(yuidoc.parser({
             project: {
-                "name": "Grafana Basic",
-                "description": "Grafana Basic API ",
+                "name": "Slope Graph",
+                "description": "Slope Graph API ",
                 "version": "1.0.3",
                 "url": "http://www.netsage.global/",
                 "themedir": "./node_modules/yuidoc-bootstrap-theme",

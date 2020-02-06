@@ -1,16 +1,16 @@
 {
   "type": "panel",
-  "name": "Grafana Basic",
-  "id": "grafana-basic",
+  "name": "Slope Graph",
+  "id": "slope-graph",
   "info": {
-    "description": "Grafana Basic Grafana Plugin",
+    "description": "Slope Graph Grafana Plugin",
     "author": {
       "name": "NetSage",
       "url": "http://www.netsage.global/"
     },
     "keywords": [
       "netsage",
-      "grafanabasic",
+      "slopegraph",
       "plugin"
     ],
     "version": "0.0.2",
